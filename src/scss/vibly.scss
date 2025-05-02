@@ -1,0 +1,151 @@
+/**
+ * Vibly - Main SCSS file
+ */
+
+// Define CSS variables
+:root {
+  --vibly-color-primary: #2196f3;
+  --vibly-color-secondary: #f44336;
+  --vibly-color-background: rgba(0, 0, 0, 0.7);
+  --vibly-color-text: #ffffff;
+  --vibly-font-family: 'Roboto', Arial, sans-serif;
+  --vibly-border-radius: 4px;
+  --vibly-control-spacing: 10px;
+}
+
+// Import themes
+@import 'themes/default';
+@import 'themes/city';
+@import 'themes/forest';
+
+// Base styles for Vibly player
+.vibly-player {
+  font-family: var(--vibly-font-family);
+  
+  // Control bar styling
+  .vjs-control-bar {
+    background-color: var(--vibly-color-background);
+    border-radius: 0 0 var(--vibly-border-radius) var(--vibly-border-radius);
+    padding: 0 var(--vibly-control-spacing);
+  }
+  
+  // Progress bar styling
+  .vjs-progress-control {
+    .vjs-progress-holder {
+      margin: 0 10px;
+    }
+    
+    .vjs-play-progress {
+      background-color: var(--vibly-color-primary);
+    }
+    
+    .vjs-load-progress {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+  // Button styling
+  .vjs-button {
+    color: var(--vibly-color-text);
+    
+    &:hover {
+      color: var(--vibly-color-primary);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px var(--vibly-color-primary);
+    }
+  }
+  
+  // Big play button styling
+  .vjs-big-play-button {
+    background-color: var(--vibly-color-background);
+    border: 2px solid var(--vibly-color-text);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    line-height: 76px;
+    font-size: 40px;
+    
+    &:hover {
+      background-color: var(--vibly-color-primary);
+      border-color: var(--vibly-color-primary);
+    }
+  }
+  
+  // Menu styling
+  .vjs-menu {
+    .vjs-menu-content {
+      background-color: var(--vibly-color-background);
+      border-radius: var(--vibly-border-radius);
+      overflow: hidden;
+    }
+    
+    .vjs-menu-item {
+      color: var(--vibly-color-text);
+      
+      &:hover, &.vjs-selected {
+        background-color: var(--vibly-color-primary);
+        color: var(--vibly-color-text);
+      }
+    }
+  }
+  
+  // Volume panel styling
+  .vjs-volume-panel {
+    .vjs-volume-control {
+      width: 80px;
+    }
+    
+    .vjs-volume-bar {
+      margin: 1.35em 0.45em;
+      
+      .vjs-volume-level {
+        background-color: var(--vibly-color-primary);
+      }
+    }
+  }
+  
+  // Time display styling
+  .vjs-time-control {
+    color: var(--vibly-color-text);
+    font-size: 14px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  
+  // Captions styling
+  .vjs-captions {
+    font-family: var(--vibly-font-family);
+    font-size: 20px;
+    
+    .vjs-text-track-display {
+      bottom: 60px;
+    }
+  }
+  
+  // Responsive styling
+  &.vjs-fluid {
+    padding-top: 56.25%; // 16:9 aspect ratio
+  }
+}
+
+// Responsive breakpoints
+@media (max-width: 768px) {
+  .vibly-player {
+    .vjs-control-bar {
+      padding: 0 5px;
+    }
+    
+    .vjs-time-control {
+      display: none;
+    }
+    
+    .vjs-volume-panel {
+      .vjs-volume-control {
+        width: 60px;
+      }
+    }
+  }
+}

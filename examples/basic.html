@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibly Basic Example</title>
+  
+  <!-- Video.js CSS -->
+  <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+  <!-- Vibly CSS (when published) -->
+  <link href="https://unpkg.com/vibly/dist/vibly.css" rel="stylesheet">
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .theme-selector {
+      margin-bottom: 20px;
+    }
+    
+    .player-container {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Vibly Player - Basic Example</h1>
+  
+  <div class="theme-selector">
+    <label for="theme-select">Select Theme:</label>
+    <select id="theme-select">
+      <option value="default">Default</option>
+      <option value="city">City</option>
+      <option value="forest">Forest</option>
+    </select>
+  </div>
+  
+  <div class="player-container">
+    <video
+      id="my-player"
+      class="video-js vibly-theme-default"
+      controls
+      preload="auto"
+      width="640"
+      height="360"
+      poster="https://vjs.zencdn.net/v/oceans.png">
+      <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+      <source src="https://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+      <track kind="captions" src="https://vjs.zencdn.net/v/oceans.vtt" srclang="en" label="English" default>
+      <p class="vjs-no-js">
+        To view this video please enable JavaScript, and consider upgrading to a
+        web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+  </div>
+  
+  <div class="controls">
+    <button id="play-btn">Play</button>
+    <button id="pause-btn">Pause</button>
+    <button id="mute-btn">Mute</button>
+    <button id="fullscreen-btn">Fullscreen</button>
+  </div>
+  
+  <!-- Video.js -->
+  <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
+  <!-- Vibly (when published) -->
+  <script src="https://unpkg.com/vibly/dist/vibly.min.js"></script>
+  
+  <!-- For local development, use these instead -->
+  <!-- <link href="../dist/vibly.css" rel="stylesheet"> -->
+  <!-- <script src="../dist/vibly.min.js"></script> -->
+  
+  <script>
+    // Initialize the player
+    var player = videojs('my-player');
+    
+    // Initialize Vibly
+    player.vibly({
+      theme: 'default',
+      fluid: true,
+      aspectRatio: '16:9',
+      playbackRates: [0.5, 1, 1.5, 2]
+    });
+    
+    // Theme selector
+    var themeSelect = document.getElementById('theme-select');
+    themeSelect.addEventListener('change', function() {
+      var theme = themeSelect.value;
+      
+      // Remove existing theme classes
+      player.removeClass('vibly-theme-default');
+      player.removeClass('vibly-theme-city');
+      player.removeClass('vibly-theme-forest');
+      
+      // Add selected theme class
+      player.addClass('vibly-theme-' + theme);
+    });
+    
+    // Control buttons
+    document.getElementById('play-btn').addEventListener('click', function() {
+      player.play();
+    });
+    
+    document.getElementById('pause-btn').addEventListener('click', function() {
+      player.pause();
+    });
+    
+    document.getElementById('mute-btn').addEventListener('click', function() {
+      player.muted(!player.muted());
+      this.textContent = player.muted() ? 'Unmute' : 'Mute';
+    });
+    
+    document.getElementById('fullscreen-btn').addEventListener('click', function() {
+      if (player.isFullscreen()) {
+        player.exitFullscreen();
+      } else {
+        player.requestFullscreen();
+      }
+    });
+    
+    // Log events
+    player.on('play', function() {
+      console.log('Video started playing');
+    });
+    
+    player.on('pause', function() {
+      console.log('Video paused');
+    });
+    
+    player.on('ended', function() {
+      console.log('Video ended');
+    });
+  </script>
+</body>
+</html>

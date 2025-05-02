@@ -1,0 +1,10 @@
+{
+  "testEnvironment": "jsdom",
+  "transform": {},
+  "moduleFileExtensions": ["js", "json"],
+  "collectCoverageFrom": ["src/**/*.js"],
+  "coverageDirectory": "coverage",
+  "testMatch": ["**/__tests__/**/*.js", "**/?(*.)+(spec|test).js"],
+  "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
+  "setupFilesAfterEnv": ["<rootDir>/jest.setup.js"]
+}

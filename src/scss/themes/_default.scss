@@ -1,0 +1,25 @@
+/**
+ * Vibly - Default theme
+ */
+
+.vibly-theme-default {
+  --vibly-color-primary: #2196f3;
+  --vibly-color-secondary: #f44336;
+  --vibly-color-background: rgba(0, 0, 0, 0.7);
+  --vibly-color-text: #ffffff;
+  --vibly-font-family: 'Roboto', Arial, sans-serif;
+  --vibly-border-radius: 4px;
+  
+  .vjs-control-bar {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+  }
+  
+  .vjs-big-play-button {
+    background-color: rgba(33, 150, 243, 0.8);
+    border-color: #ffffff;
+    
+    &:hover {
+      background-color: rgba(33, 150, 243, 1);
+    }
+  }
+}

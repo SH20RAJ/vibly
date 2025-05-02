@@ -1,0 +1,44 @@
+/**
+ * Vibly - City theme
+ */
+
+.vibly-theme-city {
+  --vibly-color-primary: #ff5722;
+  --vibly-color-secondary: #03a9f4;
+  --vibly-color-background: rgba(33, 33, 33, 0.8);
+  --vibly-color-text: #ffffff;
+  --vibly-font-family: 'Roboto', Arial, sans-serif;
+  --vibly-border-radius: 0;
+  
+  .vjs-control-bar {
+    background: linear-gradient(to top, rgba(33, 33, 33, 0.9), rgba(33, 33, 33, 0.7));
+    border-radius: 0;
+  }
+  
+  .vjs-big-play-button {
+    background-color: rgba(255, 87, 34, 0.8);
+    border-color: #ffffff;
+    border-radius: 0;
+    width: 90px;
+    height: 60px;
+    line-height: 56px;
+    
+    &:hover {
+      background-color: rgba(255, 87, 34, 1);
+    }
+  }
+  
+  .vjs-progress-control {
+    .vjs-play-progress {
+      background-color: var(--vibly-color-primary);
+    }
+  }
+  
+  .vjs-volume-panel {
+    .vjs-volume-bar {
+      .vjs-volume-level {
+        background-color: var(--vibly-color-primary);
+      }
+    }
+  }
+}

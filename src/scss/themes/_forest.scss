@@ -1,0 +1,48 @@
+/**
+ * Vibly - Forest theme
+ */
+
+.vibly-theme-forest {
+  --vibly-color-primary: #4caf50;
+  --vibly-color-secondary: #8bc34a;
+  --vibly-color-background: rgba(27, 94, 32, 0.8);
+  --vibly-color-text: #ffffff;
+  --vibly-font-family: 'Roboto', Arial, sans-serif;
+  --vibly-border-radius: 8px;
+  
+  .vjs-control-bar {
+    background: linear-gradient(to top, rgba(27, 94, 32, 0.9), rgba(27, 94, 32, 0.7));
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .vjs-big-play-button {
+    background-color: rgba(76, 175, 80, 0.8);
+    border-color: #ffffff;
+    border-radius: 50%;
+    
+    &:hover {
+      background-color: rgba(76, 175, 80, 1);
+    }
+  }
+  
+  .vjs-progress-control {
+    .vjs-play-progress {
+      background-color: var(--vibly-color-primary);
+    }
+  }
+  
+  .vjs-volume-panel {
+    .vjs-volume-bar {
+      .vjs-volume-level {
+        background-color: var(--vibly-color-primary);
+      }
+    }
+  }
+  
+  .vjs-menu {
+    .vjs-menu-content {
+      background-color: rgba(27, 94, 32, 0.9);
+      border-radius: var(--vibly-border-radius);
+    }
+  }
+}
