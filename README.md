@@ -9,6 +9,7 @@
     <a href="https://bundlephobia.com/package/vibly"><img src="https://img.shields.io/bundlephobia/minzip/vibly?style=flat-square" alt="Bundle Size"></a>
     <a href="https://github.com/SH20RAJ/vibly/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/vibly?style=flat-square" alt="License: MIT"></a>
     <a href="https://github.com/SH20RAJ/vibly/actions"><img src="https://img.shields.io/github/workflow/status/SH20RAJ/vibly/CI?style=flat-square" alt="Build Status"></a>
+    <a href="https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FSH20RAJ%2Fvibly%2F"><img src="https://api.visitorbadge.io/api/combined?path=https%3A%2F%2Fgithub.com%2FSH20RAJ%2Fvibly%2F&labelColor=%23ba68c8&countColor=%23dce775&style=flat" /></a>
   </p>
 </div>
 
