@@ -208,13 +208,17 @@ class Vibly extends Plugin {
         }
 
         // Initialize HLS if available
-        if (Hls && Hls.isSupported()) {
-          const hls = new Hls(options.hls.config);
-          hls.loadSource(source.src);
-          hls.attachMedia(player.tech().el());
+        if (Hls && typeof Hls.isSupported === 'function' && Hls.isSupported()) {
+          try {
+            const hls = new Hls(options.hls.config);
+            hls.loadSource(source.src);
+            hls.attachMedia(player.tech().el());
 
-          // Store HLS instance for cleanup
-          this.hls = hls;
+            // Store HLS instance for cleanup
+            this.hls = hls;
+          } catch (e) {
+            console.warn('Error initializing HLS player:', e);
+          }
         }
       }
 
@@ -232,13 +236,21 @@ class Vibly extends Plugin {
         }
 
         // Initialize DASH if available
-        if (dashjs) {
-          const dash = dashjs.MediaPlayer().create();
-          dash.initialize(player.tech().el(), source.src, false);
-          dash.updateSettings(options.dash.config);
+        if (dashjs && typeof dashjs.MediaPlayer === 'function') {
+          try {
+            const dash = dashjs.MediaPlayer().create();
+            dash.initialize(player.tech().el(), source.src, false);
 
-          // Store DASH instance for cleanup
-          this.dash = dash;
+            // Only call updateSettings if it exists
+            if (typeof dash.updateSettings === 'function') {
+              dash.updateSettings(options.dash.config);
+            }
+
+            // Store DASH instance for cleanup
+            this.dash = dash;
+          } catch (e) {
+            console.warn('Error initializing DASH player:', e);
+          }
         }
       }
     });
@@ -348,13 +360,25 @@ class Vibly extends Plugin {
 
     // Clean up HLS instance if exists
     if (this.hls) {
-      this.hls.destroy();
+      try {
+        if (typeof this.hls.destroy === 'function') {
+          this.hls.destroy();
+        }
+      } catch (e) {
+        console.warn('Error destroying HLS player:', e);
+      }
       this.hls = null;
     }
 
     // Clean up DASH instance if exists
     if (this.dash) {
-      this.dash.destroy();
+      try {
+        if (typeof this.dash.destroy === 'function') {
+          this.dash.destroy();
+        }
+      } catch (e) {
+        console.warn('Error destroying DASH player:', e);
+      }
       this.dash = null;
     }
 
