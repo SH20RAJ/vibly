@@ -1,8 +1,19 @@
 <div align="center">
-  <img src="https://via.placeholder.com/200x200.png?text=Vibly" alt="Vibly Logo" width="200" height="200">
+  <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#2196f3;stop-opacity:1" />
+        <stop offset="100%" style="stop-color:#4caf50;stop-opacity:1" />
+      </linearGradient>
+    </defs>
+    <circle cx="100" cy="100" r="90" fill="url(#grad1)" />
+    <polygon points="80,60 140,100 80,140" fill="white" />
+    <text x="100" y="180" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">VIBLY</text>
+  </svg>
+
   <h1>Vibly</h1>
   <p>A modern, feature-rich, customizable Video.js player</p>
-  
+
   <p>
     <a href="https://www.npmjs.com/package/vibly"><img src="https://img.shields.io/npm/v/vibly?style=flat-square" alt="npm version"></a>
     <a href="https://www.npmjs.com/package/vibly"><img src="https://img.shields.io/npm/dm/vibly?style=flat-square" alt="npm downloads"></a>
@@ -109,7 +120,7 @@ Vibly accepts all Video.js options plus additional options:
 player.vibly({
   // Theme options
   theme: 'default',
-  
+
   // Video.js options
   fluid: true,
   aspectRatio: '16:9',
@@ -118,10 +129,10 @@ player.vibly({
   loop: false,
   preload: 'auto',
   controls: true,
-  
+
   // Playback options
   playbackRates: [0.5, 1, 1.5, 2],
-  
+
   // Streaming options
   hls: {
     enabled: true,
@@ -133,14 +144,14 @@ player.vibly({
     overrideNative: true,
     config: {}
   },
-  
+
   // Analytics options
   analytics: {
     enabled: false,
     trackingId: '',
     events: ['play', 'pause', 'ended', 'volumechange', 'fullscreenchange', 'error']
   },
-  
+
   // Control bar configuration
   controlBar: {
     children: [
@@ -219,22 +230,22 @@ import 'vibly';
 
 const VideoPlayer = () => {
   const videoRef = useRef(null);
-  
+
   useEffect(() => {
     const player = videojs(videoRef.current, {
       controls: true,
       fluid: true
     });
-    
+
     player.vibly({
       theme: 'default'
     });
-    
+
     return () => {
       if (player) player.dispose();
     };
   }, []);
-  
+
   return (
     <div data-vjs-player>
       <video ref={videoRef} className="video-js vibly-theme-default" />
@@ -267,11 +278,11 @@ export default {
         controls: true,
         fluid: true
       });
-      
+
       player.vibly({
         theme: 'default'
       });
-      
+
       this.player = player;
     });
   },
