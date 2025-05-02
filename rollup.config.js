@@ -32,7 +32,7 @@ export default [
         exclude: 'node_modules/**'
       }),
       postcss({
-        extract: 'dist/vibly.css',
+        extract: pkg.style,
         minimize: true,
         sourceMap: true,
         extensions: ['.css', '.scss']
