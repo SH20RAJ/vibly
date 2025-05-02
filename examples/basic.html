@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vibly Basic Example</title>
-  
+
   <!-- Video.js CSS -->
   <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
-  <!-- Vibly CSS (when published) -->
-  <link href="https://unpkg.com/vibly/dist/vibly.css" rel="stylesheet">
-  
+  <!-- Vibly CSS -->
+  <link href="https://unpkg.com/vibly@0.1.1/dist/vibly.css" rel="stylesheet">
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -17,24 +17,61 @@
       margin: 0 auto;
       padding: 20px;
     }
-    
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
     h1 {
       text-align: center;
       margin-bottom: 30px;
     }
-    
+
     .theme-selector {
       margin-bottom: 20px;
     }
-    
+
     .player-container {
       margin-bottom: 30px;
+    }
+
+    .controls {
+      margin-bottom: 30px;
+    }
+
+    .controls button {
+      padding: 8px 16px;
+      margin-right: 10px;
+      cursor: pointer;
+      background-color: #2196f3;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    .controls button:hover {
+      background-color: #0d8aee;
     }
   </style>
 </head>
 <body>
+  <div class="logo">
+    <svg width="100" height="100" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#2196f3;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#4caf50;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <circle cx="100" cy="100" r="90" fill="url(#grad1)" />
+      <polygon points="80,60 140,100 80,140" fill="white" />
+      <text x="100" y="180" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">VIBLY</text>
+    </svg>
+  </div>
+
   <h1>Vibly Player - Basic Example</h1>
-  
+
   <div class="theme-selector">
     <label for="theme-select">Select Theme:</label>
     <select id="theme-select">
@@ -43,7 +80,7 @@
       <option value="forest">Forest</option>
     </select>
   </div>
-  
+
   <div class="player-container">
     <video
       id="my-player"
@@ -62,27 +99,27 @@
       </p>
     </video>
   </div>
-  
+
   <div class="controls">
     <button id="play-btn">Play</button>
     <button id="pause-btn">Pause</button>
     <button id="mute-btn">Mute</button>
     <button id="fullscreen-btn">Fullscreen</button>
   </div>
-  
+
   <!-- Video.js -->
   <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
-  <!-- Vibly (when published) -->
-  <script src="https://unpkg.com/vibly/dist/vibly.min.js"></script>
-  
+  <!-- Vibly -->
+  <script src="https://unpkg.com/vibly@0.1.1/dist/vibly.min.js"></script>
+
   <!-- For local development, use these instead -->
   <!-- <link href="../dist/vibly.css" rel="stylesheet"> -->
   <!-- <script src="../dist/vibly.min.js"></script> -->
-  
+
   <script>
     // Initialize the player
     var player = videojs('my-player');
-    
+
     // Initialize Vibly
     player.vibly({
       theme: 'default',
@@ -90,35 +127,35 @@
       aspectRatio: '16:9',
       playbackRates: [0.5, 1, 1.5, 2]
     });
-    
+
     // Theme selector
     var themeSelect = document.getElementById('theme-select');
     themeSelect.addEventListener('change', function() {
       var theme = themeSelect.value;
-      
+
       // Remove existing theme classes
       player.removeClass('vibly-theme-default');
       player.removeClass('vibly-theme-city');
       player.removeClass('vibly-theme-forest');
-      
+
       // Add selected theme class
       player.addClass('vibly-theme-' + theme);
     });
-    
+
     // Control buttons
     document.getElementById('play-btn').addEventListener('click', function() {
       player.play();
     });
-    
+
     document.getElementById('pause-btn').addEventListener('click', function() {
       player.pause();
     });
-    
+
     document.getElementById('mute-btn').addEventListener('click', function() {
       player.muted(!player.muted());
       this.textContent = player.muted() ? 'Unmute' : 'Mute';
     });
-    
+
     document.getElementById('fullscreen-btn').addEventListener('click', function() {
       if (player.isFullscreen()) {
         player.exitFullscreen();
@@ -126,16 +163,16 @@
         player.requestFullscreen();
       }
     });
-    
+
     // Log events
     player.on('play', function() {
       console.log('Video started playing');
     });
-    
+
     player.on('pause', function() {
       console.log('Video paused');
     });
-    
+
     player.on('ended', function() {
       console.log('Video ended');
     });

@@ -1,6 +1,6 @@
 {
   "name": "vibly",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A modern, customizable Video.js player with enhanced features and themes",
   "type": "module",
   "main": "dist/vibly.cjs.js",
