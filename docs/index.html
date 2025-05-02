@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibly - A Modern, Customizable Video.js Player</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/images/favicon.ico">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Video.js CSS -->
+  <link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+  
+  <!-- Vibly CSS -->
+  <link href="https://unpkg.com/vibly/dist/vibly.css" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <img src="https://via.placeholder.com/150x150.png?text=Vibly" alt="Vibly Logo">
+      <h1>Vibly</h1>
+      <p>A modern, feature-rich, customizable Video.js player</p>
+      <div class="badges">
+        <a href="https://www.npmjs.com/package/vibly"><img src="https://img.shields.io/npm/v/vibly?style=flat-square" alt="npm version"></a>
+        <a href="https://www.npmjs.com/package/vibly"><img src="https://img.shields.io/npm/dm/vibly?style=flat-square" alt="npm downloads"></a>
+        <a href="https://bundlephobia.com/package/vibly"><img src="https://img.shields.io/bundlephobia/minzip/vibly?style=flat-square" alt="Bundle Size"></a>
+        <a href="https://github.com/SH20RAJ/vibly/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/vibly?style=flat-square" alt="License: MIT"></a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <h1>Vibly</h1>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
+        <li><a href="#themes">Themes</a></li>
+        <li><a href="#api">API</a></li>
+        <li><a href="#demo">Demo</a></li>
+        <li><a href="https://github.com/SH20RAJ/vibly" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Features -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2 class="animate-on-scroll">Features</h2>
+      <div class="features-grid">
+        <div class="feature animate-on-scroll">
+          <i class="fas fa-mobile-alt"></i>
+          <h3>Responsive Design</h3>
+          <p>Fluid layout that adapts to any screen size</p>
+        </div>
+        <div class="feature animate-on-scroll">
+          <i class="fas fa-palette"></i>
+          <h3>Customizable Themes</h3>
+          <p>Multiple built-in themes with easy CSS customization</p>
+        </div>
+        <div class="feature animate-on-scroll">
+          <i class="fas fa-tv"></i>
+          <h3>Streaming Support</h3>
+          <p>Native HLS and DASH streaming with fallbacks</p>
+        </div>
+        <div class="feature animate-on-scroll">
+          <i class="fas fa-plug"></i>
+          <h3>Plugin Ecosystem</h3>
+          <p>Works with all Video.js plugins</p>
+        </div>
+        <div class="feature animate-on-scroll">
+          <i class="fas fa-universal-access"></i>
+          <h3>Accessibility</h3>
+          <p>ARIA attributes and keyboard navigation</p>
+        </div>
+        <div class="feature animate-on-scroll">
+          <i class="fas fa-globe"></i>
+          <h3>Internationalization</h3>
+          <p>Multi-language support</p>
+        </div>
+        <div class="feature animate-on-scroll">
+          <i class="fas fa-chart-line"></i>
+          <h3>Analytics Integration</h3>
+          <p>Track video engagement</p>
+        </div>
+        <div class="feature animate-on-scroll">
+          <i class="fas fa-code"></i>
+          <h3>Framework Compatibility</h3>
+          <p>Works with React, Vue, Angular, and more</p>
+        </div>
+        <div class="feature animate-on-scroll">
+          <i class="fas fa-bolt"></i>
+          <h3>Performance Optimized</h3>
+          <p>Lightweight and fast loading</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Installation -->
+  <section id="installation" class="installation">
+    <div class="container">
+      <h2 class="animate-on-scroll">Installation</h2>
+      <div class="installation-tabs">
+        <button class="active" data-tab="npm">NPM</button>
+        <button data-tab="cdn">CDN</button>
+      </div>
+      <div class="installation-content">
+        <div id="npm" class="tab-content active">
+          <div class="code-block">
+            <pre><code>npm install vibly video.js</code></pre>
+          </div>
+          <div class="code-block">
+            <pre><code>import videojs from 'video.js';
+import 'video.js/dist/video-js.css';
+import 'vibly/dist/vibly.css';
+import Vibly from 'vibly';</code></pre>
+          </div>
+        </div>
+        <div id="cdn" class="tab-content">
+          <div class="code-block">
+            <pre><code>&lt;!-- Video.js CSS --&gt;
+&lt;link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet"&gt;
+&lt;!-- Vibly CSS --&gt;
+&lt;link href="https://unpkg.com/vibly/dist/vibly.css" rel="stylesheet"&gt;
+&lt;!-- Video.js & Vibly JS --&gt;
+&lt;script src="https://unpkg.com/video.js/dist/video.min.js"&gt;&lt;/script&gt;
+&lt;script src="https://unpkg.com/vibly/dist/vibly.min.js"&gt;&lt;/script&gt;</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Usage -->
+  <section id="usage" class="usage">
+    <div class="container">
+      <h2 class="animate-on-scroll">Usage</h2>
+      <div class="usage-example animate-on-scroll">
+        <div class="code-block">
+          <pre><code>&lt;video id="my-player" class="video-js vibly-theme-default" controls&gt;
+  &lt;source src="https://example.com/video.mp4" type="video/mp4"&gt;
+  &lt;track kind="captions" src="https://example.com/captions-en.vtt" srclang="en" label="English" default&gt;
+&lt;/video&gt;
+
+&lt;script&gt;
+  const player = videojs('my-player');
+  player.vibly({
+    theme: 'default',
+    fluid: true,
+    aspectRatio: '16:9',
+    playbackRates: [0.5, 1, 1.5, 2]
+  });
+&lt;/script&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Themes -->
+  <section id="themes" class="themes">
+    <div class="container">
+      <h2 class="animate-on-scroll">Themes</h2>
+      <div class="themes-grid">
+        <div class="theme animate-on-scroll">
+          <div class="theme-preview" style="background-color: #2196f3;"></div>
+          <div class="theme-info">
+            <h3>Default Theme</h3>
+            <p>A clean, modern theme with blue accents</p>
+            <div class="code-block">
+              <pre><code>player.vibly({
+  theme: 'default'
+});</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="theme animate-on-scroll">
+          <div class="theme-preview" style="background-color: #ff5722;"></div>
+          <div class="theme-info">
+            <h3>City Theme</h3>
+            <p>An urban theme with orange accents and square corners</p>
+            <div class="code-block">
+              <pre><code>player.vibly({
+  theme: 'city'
+});</code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="theme animate-on-scroll">
+          <div class="theme-preview" style="background-color: #4caf50;"></div>
+          <div class="theme-info">
+            <h3>Forest Theme</h3>
+            <p>A nature-inspired theme with green accents and rounded corners</p>
+            <div class="code-block">
+              <pre><code>player.vibly({
+  theme: 'forest'
+});</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- API -->
+  <section id="api" class="api">
+    <div class="container">
+      <h2 class="animate-on-scroll">API Reference</h2>
+      <div class="api-section animate-on-scroll">
+        <h3>Methods</h3>
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>player.vibly(options)</code></td>
+              <td>Initialize the Vibly plugin with options</td>
+            </tr>
+            <tr>
+              <td><code>player.vibly().setTheme(theme)</code></td>
+              <td>Change the theme of the player</td>
+            </tr>
+            <tr>
+              <td><code>player.vibly().getOptions()</code></td>
+              <td>Get the current options</td>
+            </tr>
+            <tr>
+              <td><code>player.vibly().updateOptions(options)</code></td>
+              <td>Update options at runtime</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="api-section animate-on-scroll">
+        <h3>Options</h3>
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Option</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>theme</code></td>
+              <td>String</td>
+              <td><code>'default'</code></td>
+              <td>The theme to use. Available themes: <code>'default'</code>, <code>'city'</code>, <code>'forest'</code></td>
+            </tr>
+            <tr>
+              <td><code>fluid</code></td>
+              <td>Boolean</td>
+              <td><code>true</code></td>
+              <td>Whether to use fluid (responsive) mode</td>
+            </tr>
+            <tr>
+              <td><code>aspectRatio</code></td>
+              <td>String</td>
+              <td><code>'16:9'</code></td>
+              <td>The aspect ratio to use in fluid mode</td>
+            </tr>
+            <tr>
+              <td><code>playbackRates</code></td>
+              <td>Array</td>
+              <td><code>[0.5, 1, 1.5, 2]</code></td>
+              <td>The playback rates to show in the menu</td>
+            </tr>
+            <tr>
+              <td><code>hls</code></td>
+              <td>Object</td>
+              <td><code>{ enabled: true, overrideNative: true, config: {} }</code></td>
+              <td>HLS streaming options</td>
+            </tr>
+            <tr>
+              <td><code>dash</code></td>
+              <td>Object</td>
+              <td><code>{ enabled: true, overrideNative: true, config: {} }</code></td>
+              <td>DASH streaming options</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="api-section animate-on-scroll">
+        <h3>Events</h3>
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>vibly.ready</code></td>
+              <td>Fired when the player is ready</td>
+            </tr>
+            <tr>
+              <td><code>vibly.themechange</code></td>
+              <td>Fired when the theme is changed</td>
+            </tr>
+            <tr>
+              <td><code>vibly.play</code></td>
+              <td>Fired when the player starts playing</td>
+            </tr>
+            <tr>
+              <td><code>vibly.pause</code></td>
+              <td>Fired when the player is paused</td>
+            </tr>
+            <tr>
+              <td><code>vibly.ended</code></td>
+              <td>Fired when the video ends</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Demo -->
+  <section id="demo" class="demo">
+    <div class="container">
+      <h2 class="animate-on-scroll">Demo</h2>
+      <div class="demo-player animate-on-scroll">
+        <video id="demo-player" class="video-js vibly-theme-default" controls preload="auto" poster="https://vjs.zencdn.net/v/oceans.png">
+          <source src="https://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+          <source src="https://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+          <track kind="captions" src="https://vjs.zencdn.net/v/oceans.vtt" srclang="en" label="English" default>
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading to a
+            web browser that <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+          </p>
+        </video>
+      </div>
+      <div class="demo-controls">
+        <button id="play-btn">Play</button>
+        <button id="pause-btn">Pause</button>
+        <button id="mute-btn">Mute</button>
+        <button id="fullscreen-btn">Fullscreen</button>
+        <select id="theme-select">
+          <option value="default">Default Theme</option>
+          <option value="city">City Theme</option>
+          <option value="forest">Forest Theme</option>
+        </select>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Vibly is released under the MIT License</p>
+      <div class="social-links">
+        <a href="https://github.com/SH20RAJ/vibly" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.npmjs.com/package/vibly" target="_blank"><i class="fab fa-npm"></i></a>
+      </div>
+      <p>&copy; 2023 Shaswat Raj. All rights reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Video.js -->
+  <script src="https://unpkg.com/video.js/dist/video.min.js"></script>
+  
+  <!-- Vibly -->
+  <script src="https://unpkg.com/vibly/dist/vibly.min.js"></script>
+  
+  <!-- Custom JS -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
