@@ -1,15 +1,5 @@
 <div align="center">
-  <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" style="stop-color:#2196f3;stop-opacity:1" />
-        <stop offset="100%" style="stop-color:#4caf50;stop-opacity:1" />
-      </linearGradient>
-    </defs>
-    <circle cx="100" cy="100" r="90" fill="url(#grad1)" />
-    <polygon points="80,60 140,100 80,140" fill="white" />
-    <text x="100" y="180" font-family="Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="white">VIBLY</text>
-  </svg>
+  <img src="https://raw.githubusercontent.com/SH20RAJ/vibly/main/docs/assets/images/vibly-logo.svg" alt="Vibly Logo" width="200" height="200">
 
   <h1>Vibly</h1>
   <p>A modern, feature-rich, customizable Video.js player</p>
